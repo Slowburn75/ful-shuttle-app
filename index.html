@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Sign Up</title>
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <div class="form-box">
+
+        <!-- Set the action to the page that displays the user details -->
+        <form action="welcome.html" method="GET">
+          <h2 style="color: #1034a6;">Sign Up</h2>
+          <div class="name-container">
+            <div class="inputbox half-width">
+              <ion-icon name="person-outline"></ion-icon>
+              <input type="text" name="firstName" required>
+              <label for="">First Name</label>
+            </div>
+            <div class="inputbox half-width">
+              <ion-icon name="person-outline"></ion-icon>
+              <input type="text" name="lastName" required>
+              <label for="">Last Name</label>
+            </div>
+          </div>
+          <div class="inputbox">
+            <ion-icon name="school-outline"></ion-icon>
+            <input type="text" name="matricNumber" required>
+            <label for="">Matric Number</label>
+          </div>
+          <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" name="email" required>
+            <label for="">Email</label>
+          </div>
+          <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" name="password" required>
+            <label for="">Password</label>
+          </div>
+          <button type="submit">Sign Up</button>
+          <div class="register">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

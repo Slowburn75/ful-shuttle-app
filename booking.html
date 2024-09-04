@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">				
+    <link rel="stylesheet" href="css/nice-select.css">							
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">				
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+    <style>
+.navbar{
+	position: relative;
+	z-index: 1030;
+}
+.boarding-pass {
+  position: relative;
+	z-index: 1;
+	
+  width: 400px;
+  height: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-transform: uppercase;
+  margin-top: 20px;
+  /*--------------------
+  Header
+  --------------------*/
+  /*--------------------
+  Cities
+  --------------------*/
+  /*--------------------
+  Infos
+  --------------------*/
+  /*--------------------
+  Strap
+  --------------------*/
+}
+.boarding-pass small {
+  display: block;
+  font-size: 11px;
+  color: #A2A9B3;
+  margin-bottom: 2px;
+}
+.boarding-pass strong {
+  font-size: 15px;
+  display: block;
+}
+.boarding-pass header {
+  background: linear-gradient(to bottom, #36475f, #2c394f);
+  padding: 12px 20px;
+  height: 53px;
+}
+.boarding-pass header .logo {
+  float: left;
+  width: 104px;
+  height: 31px;
+}
+.boarding-pass header .flight {
+  float: right;
+  color: #fff;
+  text-align: right;
+}
+.boarding-pass header .flight small {
+  font-size: 8px;
+  margin-bottom: 2px;
+  opacity: 0.8;
+}
+.boarding-pass header .flight strong {
+  font-size: 18px;
+}
+.boarding-pass .cities {
+  position: relative;
+}
+.boarding-pass .cities::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.boarding-pass .cities .city {
+  padding: 20px 18px;
+  float: left;
+}
+.boarding-pass .cities .city:nth-child(2) {
+  float: right;
+}
+.boarding-pass .cities .city strong {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1;
+}
+.boarding-pass .cities .city small {
+  margin-bottom: 0px;
+  margin-left: 3px;
+}
+.boarding-pass .cities .airplane {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  top: 57%;
+  left: 30%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  -webkit-animation: move 3s infinite;
+          animation: move 3s infinite;
+}
+@-webkit-keyframes move {
+  40% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 70%;
+    opacity: 0;
+  }
+}
+@keyframes move {
+  40% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 70%;
+    opacity: 0;
+  }
+}
+.boarding-pass .infos {
+  display: flex;
+  border-top: 1px solid #99D298;
+}
+.boarding-pass .infos .places,
+.boarding-pass .infos .times {
+
+  padding: 10px 0;
+}
+.boarding-pass .infos .places::after,
+.boarding-pass .infos .times::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.boarding-pass .infos .times strong {
+  transform: scale(0.9);
+  transform-origin: left bottom;
+}
+.boarding-pass .infos .places {
+  background: #ECECEC;
+  border-right: 1px solid #99D298;
+}
+.boarding-pass .infos .places small {
+  color: #97A1AD;
+}
+.boarding-pass .infos .places strong {
+  color: #239422;
+}
+.boarding-pass .infos .box {
+  padding: 10px 20px 10px;
+  width: 47%;
+  float: left;
+}
+.boarding-pass .infos .box small {
+  font-size: 10px;
+}
+.boarding-pass .strap {
+  clear: both;
+  position: relative;
+  border-top: 1px solid #99D298;
+}
+.boarding-pass .strap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.boarding-pass .strap .box {
+  padding: 23px 0 20px 20px;
+}
+.boarding-pass .strap .box div {
+  margin-bottom: 15px;
+}
+.boarding-pass .strap .box div small {
+  font-size: 10px;
+}
+.boarding-pass .strap .box div strong {
+  font-size: 13px;
+}
+.boarding-pass .strap .box sup {
+  font-size: 8px;
+  position: relative;
+  top: -5px;
+}
+.boarding-pass .strap .qrcode {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+}
+		
+    </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container main-menu">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">FUL Shuttle</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Book Bus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">History</a>
+                    </li>
+                </ul>
+            </div>
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbar Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i class="fa fa-user" aria-hidden="true"></i> </a>
+									<!-- <a class="dropdown-item" href="">Profile</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="login.html">Log Out</a> -->
+							</li>
+						</ul>
+        </div>
+    </nav>
+    </div>
+  </header><!-- #header -->
+    
+  <!-- start banner Area -->
+  <section class="about-banner relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">				
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="about-content col-lg-12">
+          <h1 class="text-white">
+            Book Shuttle			
+          </h1>	
+          <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="booking.html"> Book Shuttle</a></p>
+        </div>	
+      </div>
+    </div>
+  </section>
+  <!-- End banner Area -->
+    <div class="container" style="padding-top: 20px;">
+        <h1 class="text-center">Book your bus</h1>
+        <div class="row">
+                <div class="col-md-6">
+                <div  id="balance-section">
+                    <h3>Your Balance: ₦<span id="balance">50000</span></h3>
+                </div>
+                <form id="busBookingForm">
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <select class="form-control" id="from" required>
+                            <option value="">Select Origin</option>
+                            <option value="Adankolo">Adankolo</option>
+                            <option value="Felele">Felele</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="to">To:</label>
+                        <select class="form-control" id="to" required>
+                            <option value="">Select Destination</option>
+                            <option value="Adankolo">Adankolo</option>
+                            <option value="Felele">Felele</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bus">Bus Type:</label>
+                        <select class="form-control" id="bus" required>
+                            <option value="">Select Bus Type</option>
+                            <option value="standard">Standard - ₦200</option>
+                            <option value="luxury">Luxury - ₦400</option>
+                            <option value="vip">VIP - ₦600</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bus">Bus Route:</label>
+                        <select class="form-control" id="route" required>
+                            <option value="">Select Bus Route</option>
+                            <option value="Felele Road">Felele Road</option>
+                            <option value="Crusher Road">Crusher Road</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seat">Number of Seats:</label>
+                        <input type="number" class="form-control" id="seat" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+
+                </form>
+            </div>
+            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+
+              <!-- <div id="ticket"> -->
+                  <div class="boarding-pass">
+                      <header>
+                        <div class="flight">
+                          
+                          <small>Bus Number</small>
+                          <strong>4682</strong>
+                        </div>
+                      </header>
+                      <section class="cities">
+                        <div class="city">
+                    
+                          <small>From</small>
+                          <strong id="ticket-from"></strong>
+                        </div>
+                        <div class="city">
+                          <small>To</small>
+                          <strong id="ticket-to"></strong>
+                        </div>
+                        <svg class="airplane">
+                          <use xlink:href="#bus"></use>
+                        </svg>
+                      </section>
+                      <section class="infos">
+                        <div class="places">
+                          <div class="box">
+                            <small>Route</small>
+                            <strong id="ticket-route"></strong>
+                          </div>
+                          <div class="box">
+                            <small>Bus Type</small>
+                            <strong id="ticket-bus"></strong>
+                          </div>
+                            <div class="box">
+                                <small>Seat(s)</small>
+                                <strong id="ticket-seats"></strong>
+                            </div>
+                        </div>
+                        <div class="times" >
+                          <div class="box">
+                            <small>Date</small>
+                            <strong id="ticket-date"></strong>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="strap">
+                        <div class="box">
+                          <div class="passenger">
+                              <small>total price</small>
+                            <strong id="ticket-amount">₦</strong>
+                          </div>
+                        </div>
+                        <svg class="qrcode">
+                    
+                          <use xlink:href="#qrcode"></use>
+                        </svg>
+                      </section> <br>
+                      <section class="strap" style="padding-left: 130px;">
+                          <div class="box">
+                              <button id="print-button" onclick="window.print()" style="background-color: #2c394f; color: white; height: 30px; width: 100px; border-radius: 10px; border: none;">Print Ticket</button>
+                          </div>
+                      </section>
+                    </div>
+          </div>
+
+  
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
+                      <symbol id="bus-logo" viewBox="0 0 80 17">
+                        <!-- Add your bus logo SVG here -->
+                      </symbol>
+                      <symbol id="bus" viewBox="0 0 50 50">
+                        <!-- Add a bus icon SVG here -->
+                      </symbol>
+                      <symbol id="qrcode" viewBox="0 0 130 130">
+                        <!-- Add QR code icon SVG here -->
+                        <g>
+                            <path fill="#334158" d="M123,3h-5h-5h-5h-5h-5h-5v5v5v5v5v5v5v5h5h5h5h5h5h5h5v-5v-5v-5v-5v-5V8V3H123z M123,13v5v5v5v5h-5h-5h-5
+                                h-5h-5v-5v-5v-5v-5V8h5h5h5h5h5V13z"/>
+                            <polygon fill="#334158" points="88,13 88,8 88,3 83,3 78,3 78,8 78,13 83,13 	"/>
+                            <polygon fill="#334158" points="63,13 68,13 73,13 73,8 73,3 68,3 68,8 63,8 58,8 58,13 53,13 53,8 53,3 48,3 48,8 43,8 43,13 
+                                48,13 48,18 43,18 43,23 48,23 53,23 53,18 58,18 58,23 63,23 63,18 	"/>
+                            <polygon fill="#334158" points="108,13 103,13 103,18 103,23 103,28 108,28 113,28 118,28 118,23 118,18 118,13 113,13 	"/>
+                            <polygon fill="#334158" points="78,18 73,18 73,23 78,23 83,23 83,18 	"/>
+                            <polygon fill="#334158" points="23,28 28,28 28,23 28,18 28,13 23,13 18,13 13,13 13,18 13,23 13,28 18,28 	"/>
+                            <polygon fill="#334158" points="53,28 53,33 53,38 58,38 58,33 58,28 58,23 53,23 	"/>
+                            <rect x="63" y="23" fill="#334158" width="5" height="5"/>
+                            <rect x="68" y="28" fill="#334158" width="5" height="5"/>
+                            <path fill="#334158" d="M13,38h5h5h5h5h5v-5v-5v-5v-5v-5V8V3h-5h-5h-5h-5h-5H8H3v5v5v5v5v5v5v5h5H13z M8,28v-5v-5v-5V8h5h5h5h5h5v5
+                                v5v5v5v5h-5h-5h-5h-5H8V28z"/>
+                            <polygon fill="#334158" points="48,33 48,28 43,28 43,33 43,38 48,38 	"/>
+                            <polygon fill="#334158" points="83,38 88,38 88,33 88,28 88,23 83,23 83,28 78,28 78,33 83,33 	"/>
+                            <polygon fill="#334158" points="23,43 18,43 13,43 8,43 3,43 3,48 8,48 13,48 18,48 23,48 28,48 28,43 	"/>
+                            <rect x="108" y="43" fill="#334158" width="5" height="5"/>
+                            <rect x="28" y="48" fill="#334158" width="5" height="5"/>
+                            <polygon fill="#334158" points="88,53 93,53 93,48 93,43 88,43 88,48 83,48 83,53 	"/>
+                            <polygon fill="#334158" points="123,48 123,43 118,43 118,48 118,53 118,58 123,58 123,63 118,63 113,63 113,68 118,68 118,73 
+                                118,78 123,78 123,83 128,83 128,78 128,73 123,73 123,68 128,68 128,63 128,58 128,53 123,53 	"/>
+                            <polygon fill="#334158" points="98,58 98,63 103,63 103,68 108,68 108,63 108,58 103,58 103,53 103,48 103,43 98,43 98,48 98,53 
+                                93,53 93,58 	"/>
+                            <rect x="108" y="53" fill="#334158" width="5" height="5"/>
+                            <rect x="78" y="63" fill="#334158" width="5" height="5"/>
+                            <rect x="93" y="63" fill="#334158" width="5" height="5"/>
+                            <rect x="53" y="68" fill="#334158" width="5" height="5"/>
+                            <polygon fill="#334158" points="108,73 108,78 108,83 113,83 113,78 113,73 113,68 108,68 	"/>
+                            <rect x="13" y="73" fill="#334158" width="5" height="5"/>
+                            <rect x="98" y="73" fill="#334158" width="5" height="5"/>
+                            <polygon fill="#334158" points="18,83 18,88 23,88 28,88 28,83 23,83 23,78 18,78 	"/>
+                            <polygon fill="#334158" points="8,83 8,78 8,73 8,68 13,68 13,63 13,58 13,53 8,53 3,53 3,58 3,63 3,68 3,73 3,78 3,83 3,88 8,88 	
+                                "/>
+                            <rect x="53" y="83" fill="#334158" width="5" height="5"/>
+                            <rect x="73" y="83" fill="#334158" width="5" height="5"/>
+                            <path fill="#334158" d="M108,88v-5h-5h-5h-5h-5v-5h5v-5h-5v-5h-5v5h-5h-5v-5h-5h-5v5h5v5h-5v5v5h5v-5h5v-5h5h5v5v5h-5v5h5v5h-5h-5
+                                v5h5v5h5v5v5h-5v5h5h5h5v5h5h5h5h5h5h5h5v-5v-5v-5v-5v-5v-5v-5h-5h-5v-5v-5h-5v5H108z M98,118h-5v-5h5V118z M98,103h-5h-5v-5v-5v-5
+                                h5h5h5v5v5v5H98z M123,118v5h-5h-5v-5h-5h-5v-5h5v-5h5v5v5h5v-5h5V118z M118,98h5v5h-5h-5v-5H118z"/>
+                            <path fill="#334158" d="M28,93h-5h-5h-5H8H3v5v5v5v5v5v5v5h5h5h5h5h5h5h5v-5v-5v-5v-5v-5v-5v-5h-5H28z M33,103v5v5v5v5h-5h-5h-5h-5
+                                H8v-5v-5v-5v-5v-5h5h5h5h5h5V103z"/>
+                            <rect x="93" y="93" fill="#334158" width="5" height="5"/>
+                            <polygon fill="#334158" points="63,98 68,98 68,93 63,93 58,93 53,93 53,88 48,88 48,83 43,83 43,78 48,78 48,73 43,73 43,68 
+                                48,68 53,68 53,63 58,63 58,68 63,68 63,63 63,58 68,58 73,58 73,63 78,63 78,58 83,58 83,53 78,53 78,48 83,48 83,43 83,38 78,38 
+                                78,33 73,33 73,38 73,43 68,43 68,38 68,33 63,33 63,38 63,43 63,48 68,48 73,48 73,53 68,53 63,53 58,53 58,58 53,58 53,53 53,48 
+                                58,48 58,43 53,43 48,43 43,43 38,43 33,43 33,48 38,48 38,53 33,53 33,58 38,58 43,58 43,63 38,63 33,63 33,68 38,68 38,73 33,73 
+                                28,73 28,68 28,63 33,63 33,58 28,58 23,58 18,58 18,63 23,63 23,68 18,68 18,73 23,73 23,78 28,78 33,78 38,78 38,83 33,83 33,88 
+                                38,88 43,88 43,93 43,98 48,98 48,103 53,103 53,98 58,98 58,103 58,108 63,108 63,103 	"/>
+                            <polygon fill="#334158" points="18,103 13,103 13,108 13,113 13,118 18,118 23,118 28,118 28,113 28,108 28,103 23,103 	"/>
+                            <polygon fill="#334158" points="48,108 48,103 43,103 43,108 43,113 43,118 43,123 43,128 48,128 53,128 53,123 48,123 48,118 
+                                48,113 53,113 58,113 58,108 53,108 	"/>
+                            <polygon fill="#334158" points="78,118 78,113 78,108 73,108 68,108 63,108 63,113 68,113 68,118 63,118 63,123 63,128 68,128 
+                                68,123 73,123 73,118 	"/>
+                            <rect x="73" y="123" fill="#334158" width="5" height="5"/>
+                        </g>
+                      </symbol>
+                    </svg>
+    </div>      
+    
+  
+    <div id="history" class="text-center" style="padding-top: 30px;">
+        <h3>Booking History</h3>
+
+        <ul id="historyList"></ul>
+    </div><br><br>
+
+    <script>
+        let currentBalance = 50000; // Starting balance
+
+        document.getElementById('busBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const bus = document.getElementById('bus').value;
+            const route = document.getElementById('route').value;
+            const seats = parseInt(document.getElementById('seat').value);
+            const date = document.getElementById('date').value;
+
+            // Prices per bus type
+            const prices = {
+                'standard': 200,
+                'luxury': 400,
+                'vip': 600
+            };
+
+            const pricePerSeat = prices[bus];
+            const totalAmount = pricePerSeat * seats;
+
+            // Check if balance is sufficient
+            if (currentBalance >= totalAmount) {
+                // Deduct from balance
+                currentBalance -= totalAmount;
+                document.getElementById('balance').textContent = currentBalance;
+
+                // Populate the ticket
+                document.getElementById('ticket-from').textContent = from;
+                document.getElementById('ticket-to').textContent = to;
+                document.getElementById('ticket-bus').textContent = bus;
+                document.getElementById('ticket-route').textContent = route;
+                document.getElementById('ticket-seats').textContent = seats;
+                document.getElementById('ticket-date').textContent = date;
+                document.getElementById('ticket-amount').textContent = totalAmount;
+
+                // Add to booking history
+                addToHistory(from, to, bus, route, seats, date, totalAmount);
+            } else {
+
+                alert('Insufficient balance!');
+            }
+        });
+
+        function addToHistory(from, to, bus, route, seats, date, totalAmount) {
+            const historyList = document.getElementById('historyList');
+            const listItem = document.createElement('li');
+            listItem.textContent = `From: ${from}, To: ${to}, Bus: ${bus}, Route: ${route}, Seats: ${seats}, Date: ${date}, Amount: ₦${totalAmount}`;
+            historyList.appendChild(listItem);
+        }
+
+        document.getElementById('busBookingForm').addEventListener('submit', function(event) {
+            const fromLocation = document.getElementById('from').value;
+            const toLocation = document.getElementById('to').value;
+
+            if (fromLocation === toLocation) {
+                alert('Pickup and destination locations cannot be the same.');
+                event.preventDefault(); // Prevent the form from submitting
+            }
+        });
+
+        // Clear history on page load
+        window.onload = function() {
+            document.getElementById('historyList').innerHTML = '';
+            document.getElementById('balance').textContent = currentBalance;
+        };
+    </script>
+</body>
+</html>

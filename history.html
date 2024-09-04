@@ -85,81 +85,29 @@
 
 			<!-- Start home-about Area -->
 			
-<section class="container mt-5">
-    <h2 class="text-center">Bus Ticket History</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-            <thead class="thead" style="background-color: #1034a6; color: white;">
-                <tr>
-                    <th scope="col">Ticket ID</th>
-					<th scope="col">Date</th>
-                    <th scope="col">From</th>
-                    <th scope="col">To</th>
-                    <th scope="col">Bus Type</th>
-                    <th scope="col">Route</th>
-                    <th scope="col">Total Amount (₦)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>001</td>
-					<td>20-09-2024</td>
-                    <td>Adankolo</td>
-                    <td>Felele</td>
-                    <td>Standard</td>
-                    <td>Felele Road</td>
-                    <td>₦1000</td>
-                </tr>
-                <tr>
-                    <td>002</td>
-					<td>19-09-2024</td>
-                    <td>Felele</td>
-                    <td>Adankolo</td>
-                    <td>Luxury</td>
-                    <td>Crusher Road</td>
-                    <td>₦2000</td>
-                </tr>
-                <tr>
-                    <td>003</td>
-					<td>18-09-2024</td>
-                    <td>Adankolo</td>
-                    <td>Felele</td>
-                    <td>VIP</td>
-                    <td>Felele Road</td>
-                    <td>₦3000</td>
-                </tr>
-
-                <tr>
-                    <td>004</td>
-					<td>17-09-2024</td>
-                    <td>Felele</td>
-                    <td>Adankolo</td>
-                    <td>Standard</td>
-                    <td>Crusher Road</td>
-                    <td>₦1000</td>
-                </tr>
-                <tr>
-                    <td>005</td>
-					<td>16-09-2024</td>
-                    <td>Adankolo</td>
-                    <td>Felele</td>
-                    <td>Luxury</td>
-                    <td>Felele Road</td>
-                    <td>₦2000</td>
-                </tr>
-                <tr>
-                    <td>006</td>
-					<td>15-09-2024</td>
-                    <td>Felele</td>
-                    <td>Adankolo</td>
-                    <td>VIP</td>
-                    <td>Crusher Road</td>
-                    <td>₦3000</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+			<section class="container mt-5">
+				<h2 class="text-center">Booking History</h2>
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Ticket ID</th>
+								<th scope="col">From</th>
+								<th scope="col">To</th>
+								<th scope="col">Bus Type</th>
+								<th scope="col">Route</th>
+								<th scope="col">Seats</th>
+								<th scope="col">Date</th>
+								<th scope="col">Total Amount (₦)</th>
+							</tr>
+						</thead>
+						<tbody id="historyTableBody">
+							<!-- History data will be injected here -->
+						</tbody>
+					</table>
+				</div>
+			</section>
+						
 <br><br>
 
 			<!-- End home-about Area -->
@@ -179,5 +127,37 @@
 			<script src="js/owl.carousel.min.js"></script>							
 			<script src="js/mail-script.js"></script>	
 			<script src="js/main.js"></script>	
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Get ticket history from localStorage
+					const ticketHistory = JSON.parse(localStorage.getItem('ticketHistory')) || [];
+					
+					// Debugging log
+					console.log("Retrieved ticket history: ", ticketHistory);
+			
+					// Generate table rows
+					const historyTableBody = document.getElementById('historyTableBody');
+					
+					if (ticketHistory.length === 0) {
+						historyTableBody.innerHTML = '<tr><td colspan="8">No ticket history found</td></tr>';
+					} else {
+						ticketHistory.forEach((ticket, index) => {
+							const row = document.createElement('tr');
+							row.innerHTML = `
+								<td>${index + 1}</td>
+								<td>${ticket.from}</td>
+								<td>${ticket.to}</td>
+								<td>${ticket.bus}</td>
+								<td>${ticket.route}</td>
+								<td>${ticket.seats}</td>
+								<td>${ticket.date}</td>
+								<td>₦${ticket.totalAmount}</td>
+							`;
+							historyTableBody.appendChild(row);
+						});
+					}
+				});
+			</script>
+			
 		</body>
 	</html>

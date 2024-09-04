@@ -1,54 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
-<body>
-  <div class="container">
-    <div class="form-section">
-      <div class="form-box">
 
-        <!-- Set the action to the page that displays the user details -->
-        <form action="welcome.html" method="GET">
-          <h2 style="color: #1034a6;">Sign Up</h2>
-          <div class="name-container">
-            <div class="inputbox half-width">
-              <ion-icon name="person-outline"></ion-icon>
-              <input type="text" name="firstName" required>
-              <label for="">First Name</label>
+<body>
+
+    <body>
+        <nav class="navbar navbar-toggleable-md fixed-top navbar-transparent" color-on-scroll="500">
+            <div class="container">
+                <div class="navbar-translate">
+                    <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button"
+                        data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar"></span>
+                        <span class="navbar-toggler-bar"></span>
+                        <span class="navbar-toggler-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.example.com">FUL APP</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom"
+                                href="https://twitter.com/" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                                <p class="hidden-lg-up">Twitter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
+                                href="https://www.facebook.com/" target="_blank">
+                                <i class="fa fa-facebook-square"></i>
+                                <p class="hidden-lg-up">Facebook</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom"
+                                href="https://www.instagram.com/" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                                <p class="hidden-lg-up">Instagram</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="signup.html" target="_blank" class="btn btn-danger btn-round">signup</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="inputbox half-width">
-              <ion-icon name="person-outline"></ion-icon>
-              <input type="text" name="lastName" required>
-              <label for="">Last Name</label>
+        </nav>
+        <div class="wrapper">
+            <div class="page-header section-dark" style="background-image: url(img/park\ -\ Copy.jpg)">
+                <div class="filter"></div>
+                <div class="content-center">
+                    <div class="container">
+                        <div class="title-brand">
+                            <h3 class="presentation-title">FUL SHUTTLE APP</h3>
+                        </div>
+
+                        <h2 class="presentation-subtitle text-center">Click to sign up</h2>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="inputbox">
-            <ion-icon name="school-outline"></ion-icon>
-            <input type="text" name="matricNumber" required>
-            <label for="">Matric Number</label>
-          </div>
-          <div class="inputbox">
-            <ion-icon name="mail-outline"></ion-icon>
-            <input type="email" name="email" required>
-            <label for="">Email</label>
-          </div>
-          <div class="inputbox">
-            <ion-icon name="lock-closed-outline"></ion-icon>
-            <input type="password" name="password" required>
-            <label for="">Password</label>
-          </div>
-          <button type="submit">Sign Up</button>
-          <div class="register">
-            <p>Already have an account? <a href="login.html">Login</a></p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>
